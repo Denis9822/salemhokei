@@ -35,6 +35,19 @@
 
     <?php if($schools == null): ?>
         <section>
+            <div class="container mt-5">
+                <div class="row justify-content-md-center justify-content-center">
+                    <div class="col col-lg-3 text-center mr3">
+                        <a class="btn btn--arrow" href="<?php echo e(route('schools',['lang' => $lang])); ?>">Школы/Клубы </a>
+                    </div>
+                    <div class="col col-lg-3 text-center mt3">
+                        <a class="btn btn--arrow" href="<?php echo e(route('rollers',['lang' => $lang])); ?>" >Катки </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section>
             <div class="container">
                 <h2 class="title-primary">
                     <?php echo app('translator')->getFromJson('default.pages.rollers.desc'); ?>
@@ -781,7 +794,38 @@
             }
         }
     </style>
+    <style>
+        .justify-content-center
+        {
+            justify-content: center;
+        }
+        @media  screen and (max-width: 1200px) {
+            .mr3{
+                margin-right: 20px;
+            }
 
+        }
+        @media  screen and (min-width: 767px) {
+            .btn
+            {
+                padding: 26px 1.5625em;
+            }
+            .btn--arrow
+            {
+                padding-right: 5.75em;
+            }
+            .mt-5
+            {
+                margin-top: 3rem;
+            }
+        }
+        @media  screen and (max-width: 400px) {
+            .mt3{
+                margin-top: 15px;
+            }
+        }
+
+    </style>
 
 
 <?php $__env->stopSection(); ?>

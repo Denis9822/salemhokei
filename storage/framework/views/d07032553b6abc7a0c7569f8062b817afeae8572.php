@@ -806,15 +806,18 @@
             }
 
         }
+        @media  screen and (min-width: 1227px) {
+            /*.btn--arrow {*/
+            /*    padding-right: 5.75em;*/
+            /*}*/
+            /*.btn*/
+            /*{*/
+            /*    padding: 26px 1.5625em;*/
+            /*}*/
+        }
+
         @media  screen and (min-width: 767px) {
-            .btn
-            {
-                padding: 26px 1.5625em;
-            }
-            .btn--arrow
-            {
-                padding-right: 5.75em;
-            }
+
             .mt-5
             {
                 margin-top: 3rem;

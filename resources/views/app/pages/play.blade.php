@@ -8,6 +8,10 @@
         .mobile-applications{
             display: flex;
             justify-content: space-evenly;
+            flex-direction: row;
+        }
+        .mobile-applications .col-md-1{
+            width: 8.33333%;
         }
     </style>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />

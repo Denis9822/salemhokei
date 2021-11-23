@@ -172,6 +172,12 @@ body {
         margin-right: 1em;
     }
 }
+@media (max-width: 1050px) {
+    .header .menu ul li:not(:last-child)
+    {
+        margin-right: 0.5em;
+    }
+}
 @media (max-width: 768px) {
 
     .banner .video-player{

@@ -156,11 +156,15 @@ div#preloader {
         width: 100%;
         margin-bottom: 8px;
         padding: 10px;
+        height: 36px;
+        background-color: white;
     }
     #gor1, #shool1 {
         width: 100%;
         margin-bottom: 8px;
         padding: 10px;
+        height: 36px;
+        background-color: white;
     }
     .cont {
         position: relative;
