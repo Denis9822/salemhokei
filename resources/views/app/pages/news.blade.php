@@ -1,0 +1,98 @@
+@extends("app.layout.index")
+
+@section("title",__("default.site_name").' | '.__("default.pages.articles.title"))
+
+@section("content")
+    <div style="background-image: url(/assets/img/pattern1.png);
+    background-size: 1440px; opacity: .5;" class="main-wrapper__bg"></div>
+    <section>
+        <div class="container">
+            <div class="title-block">
+                <ul class="breadcrumbs">
+                    <li><a href="/{{$lang}}"
+                           title="{{ __("default.pages.main.title") }}">{{ __("default.pages.main.title") }}</a></li>
+                    <li><span>{{ __("default.pages.articles.title") }}</span></li>
+                </ul>
+                <h1 class="title-primary"><img src="/assets/img/circle-icon/news.svg" alt="">
+                    <span>{{ __("default.pages.articles.title") }}</span></h1>
+
+                <div class="mobile-dropdown">
+                    <div class="mobile-dropdown__title">{{ __("default.pages.articles.categories") }}</div>
+                    <div class="mobile-dropdown__desc">
+                        <div class="categories-list">
+                            <a href="/{{$lang}}/news" class="active"
+                               title="{{ __("default.pages.articles.all_news") }}">{{ __("default.pages.articles.all_news") }}</a>
+                            <a href="/{{$lang}}/news_articles"
+                               title="{{ __("default.pages.articles.news_articles") }}">{{ __("default.pages.articles.news_articles") }}</a>
+                            <a href="/{{$lang}}/news_videos" title="{{ __("default.pages.articles.news_videos") }}"
+                            >{{ __("default.pages.articles.news_videos") }}</a>
+                            <a href="/{{$lang}}/news_albums"
+                               title="{{ __("default.pages.articles.news_albums") }}">{{ __("default.pages.articles.news_albums") }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="margin-50">
+                <div class="row row--multiline">
+                    @foreach($items as $item)
+                        @if($item->type == 1)
+                            <div class="col-sm-6 col-md-4">
+                                <a href="/{{$lang}}/article/{{$item->alias}}" title="" class="card">
+                                    <div class="card__img">
+                                        <img src="{{$item->avatar}}" alt="">
+                                    </div>
+                                    <div class="card__date">{{date('d.m.Y', strtotime($item->published_at))}}</div>
+                                    <h4 class="card__title">{!! $item->getAttribute('name_'.$lang) ?? $item->getAttribute('name_ru') !!}</h4>
+                                    <span class="btn btn--arrow btn--red">{{ __("default.pages.articles.detail_article") }}</span>
+                                </a>
+                            </div>
+                        @elseif($item->type == 2)
+                            <div class="col-sm-6 col-md-4">
+                                <a href="{!! $item->getAttribute('link_'.$lang) ?? $item->getAttribute('link_ru') !!}"
+                                   data-fancybox title=""
+                                   class="card">
+                                    <div class="card__img video-cover">
+                                        <div class="video-cover__play">
+                                        </div>
+                                        @php
+                                            $url = $item->getAttribute('link_'.$lang );
+                                            if(empty($item->getAttribute('link_'.$lang ))){
+                                                $url = $item->getAttribute('link_ru' );
+                                            }
+                                                parse_str(parse_url( $url, PHP_URL_QUERY ), $vars)
+                                        @endphp
+                                        <img src="{{'https://img.youtube.com/vi/'.$vars['v'].'/sddefault.jpg'}}" alt="">
+                                    </div>
+                                    <div class="card__date">{{date('d.m.Y', strtotime($item->published_at))}}</div>
+                                    <h4 class="card__title">{!! $item->getAttribute('name_'.$lang) ?? $item->getAttribute('name_ru') !!}</h4>
+                                    <span class="btn btn--arrow btn--red">{{ __("default.pages.videos.watch") }}</span>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-sm-6 col-md-4">
+                                <a href="/{{$lang}}/album/{{$item->id}}" title="" class="card">
+                                    <div class="card__img">
+                                        <img src="{{$item->avatar}}" alt="">
+                                    </div>
+                                    <div class="card__date">{{date('d.m.Y', strtotime($item->published_at))}}</div>
+                                    <h4 class="card__title">{!! $item->getAttribute('name_'.$lang) ?? $item->getAttribute('name_ru') !!}</h4>
+                                    <span class="btn btn--arrow btn--red">{{ __("default.pages.main.detail_albums") }}</span>
+                                </a>
+                            </div>
+                        @endif
+
+                    @endforeach
+                </div>
+            </div>
+
+            <ul class="pagination">
+            {{ $items->links('app.pages.paginate') }}
+            </ul>
+        </div>
+    </section>
+@endsection
+
+@section("scripts")
+
+@endsection

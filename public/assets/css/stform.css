@@ -1,0 +1,206 @@
+
+/* ������ ������� ��� ��� ��� � �����) */
+#modal_form #modal_close, #modal_form2 #modal_close {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: -54px;
+    left: -44px;
+    cursor: pointer;
+    display: block;
+    background-image: url(drawing.svg);
+}
+
+/* �������� */
+#overlay {
+    z-index: 3; /* �������� ������ ���� ���� ����� ��������� �����, �� ���� ���� ���������� ���� */
+    position: fixed; /* ������ ����������� ���� ���� */
+    background-color: #000; /* ������ */
+    opacity: 0.8; /* �� ������� ��������� */
+    width: 100%;
+    height: 100%; /* �������� �� ���� ����� */
+    top: 0;
+    left: 0; /* ������ � ����� 0, ������������ ��������! */
+    cursor: pointer;
+    display: none; /* � ������� ��������� � ���) */
+}
+
+
+svg [data-name="background-layer"] {
+    fill: transparent !important;
+    transition: .3s;
+}
+
+.cont svg [data-name="background-layer"],
+.cont svg:hover [data-name="background-layer"] {
+    transition: .2s;
+    fill: #1aa6e0 !important;
+}
+
+svg [data-name="text-layer"] path, svg [data-name="text-layer"] {
+    transition: .3s;
+    fill: #1aa6e0 !important;
+}
+
+svg:hover [data-name="text-layer"],
+svg:hover [data-name="text-layer"] path {
+    transition: .2s;
+    fill: #fff !important;
+}
+
+svg [data-name="transparent-layer"] {
+    transition: .3s;
+}
+
+svg:hover [data-name="transparent-layer"] {
+    opacity: 0 !important;
+    transition: .2s;
+}
+
+/*data-name="background-layer"*/
+
+
+/* Container needed to position the button. Adjust the width as needed */
+
+
+div#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: rgba(255, 255, 255, .3) url('../../images/icons/preloader.gif') no-repeat center center;
+}
+
+@media screen and (min-width: 320px) {
+    #modal_form {
+        width: 523px;
+        /*max-height: 720px;*/
+        /*border-radius: 5px;*/
+        background: #fff;
+        position: fixed;
+        top: 30%;
+        left: 43%;
+        margin-top: -150px;
+        margin-left: -150px;
+        display: none;
+        opacity: 0;
+        z-index: 5;
+        padding: 40px 50px;
+        background: #ffa62c;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        flex-direction: column;
+        background-image: url("/assets/img/schools/form-bg.svg");
+        /*position: relative;*/
+    }
+
+    #modal_form::before {
+        display: block;
+        content: "";
+        width: 100%;
+        position: absolute;
+        height: 10px;
+        background-color: #ffa62c;
+        top: -10px;
+        left: 0;
+    }
+
+    #modal_form::after {
+        display: block;
+        content: "";
+        width: 100%;
+        position: absolute;
+        height: 10px;
+        background-color: #ffa62c;
+        bottom: -10px;
+        left: 0;
+    }
+
+    .top-text {
+        width: 100%;
+    }
+
+    .top-text > svg {
+        width: 100%;
+    }
+
+    .form-int {
+        /*position: absolute;*/
+        /*bottom: 10px;*/
+        /*margin: 0 auto;*/
+        /*width: 94%;*/
+        /*padding: 15px 0;*/
+        padding-right: 10px;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+
+    .form-int .form-group {
+        /*padding: 0 20px;*/
+    }
+
+    .form-int input {
+        width: 100%;
+        padding: 5px 9px;
+        margin-bottom: 8px;
+        font-size: 1.2em;
+    }
+
+    #gor, #shool {
+        width: 100%;
+        margin-bottom: 8px;
+        padding: 10px;
+    }
+    #gor1, #shool1 {
+        width: 100%;
+        margin-bottom: 8px;
+        padding: 10px;
+    }
+    .cont {
+        position: relative;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .cont > a {
+        display: inline-block;
+    }
+
+    #svg410 {
+        /*height: 70px;*/
+        /*width: 430px;*/
+        transform: scale(1.3);
+
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    #modal_form {
+        width: 95%;
+        /*height: 442px;*/
+        /*border-radius: 5px;*/
+        /*background: #fff;*/
+        position: fixed;
+        top: 35% !important;
+        left: 2.5%;
+        margin-top: -150px;
+        margin-left: 0px;
+        display: none;
+        opacity: 0;
+        z-index: 5;
+        padding: 20px 10px;
+    }
+
+    #modal_form #modal_close, #modal_form2 #modal_close{
+        left: 0;
+        /*top: 5px;*/
+    }
+}
+
